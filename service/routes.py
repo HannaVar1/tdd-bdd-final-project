@@ -122,6 +122,7 @@ def list_products():
 # R E A D   A   P R O D U C T
 ######################################################################
 
+
 @app.route("/products/<int:product_id>", methods=["GET"])
 def get_products(product_id):
     """get a single product"""
@@ -138,6 +139,7 @@ def get_products(product_id):
 
 @app.route("/products/<int:product_id>", methods=["PUT"])
 def update_product(product_id):
+    """update a product, access by id"""
     product = Product.find(product_id)
     if not product:
         abort(status.HTTP_404_NOT_FOUND, f"product with id {product_id} is not found")
